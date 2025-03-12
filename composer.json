@@ -2,7 +2,7 @@
     "$schema": "https://getcomposer.org/schema.json",
     "name": "nelsondiego/dn-laravel",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "Diego Nelson - Laravel Starter Kit",
     "keywords": [
         "laravel",
         "framework"
