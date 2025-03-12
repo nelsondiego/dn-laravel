@@ -1,4 +1,6 @@
-<div align="center" style="margin-bottom: 20px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+<div align="center" style="margin-bottom: 20px; display: flex; gap: 10px; justify-content: center; 
+align-items: center;
+flex-wrap: wrap;">
 
 [![Laravel Version](https://img.shields.io/badge/Laravel-12.x-%23FF2D20?style=for-the-badge&logo=laravel)](https://laravel.com)
 [![License](https://img.shields.io/badge/license-MIT-%230b0b0b?style=for-the-badge)](LICENSE)
