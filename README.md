@@ -9,8 +9,7 @@ flex-wrap: wrap;">
 </div>
 
 # DN Laravel Starter Kit
-
-## English | [Español](#español)
+DN Laravel Starter Kit is a Laravel application template designed to streamline the development process for new projects. It includes a pre-configured authentication system, Inertia.js/React frontend integration, Tailwind CSS with a modern design system, shadcn UI components library, optimized development environment setup, predefined testing configuration, and essential Laravel packages.
 
 ### 🚀 Features
 - Authentication system ready out-of-the-box
@@ -25,73 +24,17 @@ flex-wrap: wrap;">
 
 1. Create project and navigate:
 ```bash
-laravel new your-project-name --using=nelsondiego/dn-laravel
+laravel new --using=nelsondiego/dn-laravel
 cd your-project-name
 ```
 
-2. Configure environment:
-```bash
-cp .env.example .env
-php artisan key:generate
-```
+> **Important:** This application requires running with SSL (using Herd or Valet) due to history encryption. See the [Inertia.js documentation](https://inertiajs.com/history-encryption) for more details.
 
-3. Setup database:
-```bash
-php artisan migrate --seed
-```
 
-4. Install dependencies and build:
-```bash
-npm install && npm run dev
-```
-
-5. Start development server:
+2. Start development server:
 ```bash
 php artisan serve
 ```
 
----
-
-## Español
-
-### 🚀 Características
-- Sistema de autenticación listo para usar
-- Integración frontend con Inertia.js/React
-- Tailwind CSS con sistema de diseño moderno
-- Biblioteca de componentes UI shadcn
-- Entorno de desarrollo optimizado
-- Configuración de testing predefinida
-- Incluye paquetes esenciales de Laravel
-
-### 🛠️ Instalación
-
-1. Crear proyecto y acceder:
-```bash
-laravel new nombre-de-tu-proyecto --using=nelsondiego/dn-laravel
-cd nombre-de-tu-proyecto
-```
-
-2. Configurar entorno:
-```bash
-cp .env.example .env
-php artisan key:generate
-```
-
-3. Configurar base de datos:
-```bash
-php artisan migrate --seed
-```
-
-4. Instalar dependencias y compilar:
-```bash
-npm install && npm run dev
-```
-
-5. Iniciar servidor:
-```bash
-php artisan serve
-```
-
----
 
 👨💻 **Contribuciones bienvenidas** | 📄 [Licencia MIT](LICENSE) | 🐛 [Reportar issues](https://github.com/nelsondiego/dn-laravel/issues)

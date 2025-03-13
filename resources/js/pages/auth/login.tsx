@@ -42,7 +42,7 @@ export default function Login() {
               <Input
                 id="email"
                 type="email"
-                placeholder="ejemplo@clinica.com"
+                placeholder="ejemplo@empresa.com"
                 value={data.email} onChange={e => setData('email', e.target.value)}
               />
               <InputError message={errors.email} />

@@ -18,7 +18,7 @@ const LayoutGuess = ({ children }: Props) => {
                 <div className="w-full flex flex-col items-center space-y-6">
                     <Link href="/" className="flex flex-col items-center" >
                         {/* <x-application-logo /> */}
-                        <span className="text-gray-400 text-xs">PROFESIONALES</span>
+                        <span className="text-gray-400 text-xs">DN STARTER KIT</span>
                     </Link>
                     {children}
                 </div>

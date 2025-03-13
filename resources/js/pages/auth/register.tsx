@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import LayoutGuess from "@/layouts/layout-guess";
-import { useForm } from "@inertiajs/react";
+import { Link, useForm } from "@inertiajs/react";
 import { Loader2 } from "lucide-react";
 
 export default function Register() {
@@ -52,7 +52,7 @@ export default function Register() {
               <Input
                 id="email"
                 type="email"
-                placeholder="ejemplo@clinica.com"
+                placeholder="ejemplo@empresa.com"
                 value={data.email} onChange={e => setData('email', e.target.value)}
               />
               <InputError message={errors.email} />
@@ -84,10 +84,10 @@ export default function Register() {
             </Button>
           </div>
           <div className="mt-4 text-center text-sm">
-            ¿No tienes una cuenta?{" "}
-            <a href="#" className="underline underline-offset-4">
-              Regístrate aquí
-            </a>
+            ¿Ya tienes una cuenta?{" "}
+            <Link href={ route('login') } className="underline underline-offset-4">
+              Ingresa a tu cuenta
+            </Link>
           </div>
         </form>
       </CardContent>
