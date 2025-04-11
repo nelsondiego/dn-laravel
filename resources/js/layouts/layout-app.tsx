@@ -14,7 +14,7 @@ import {
     SidebarTrigger,
 } from "@/components/ui/sidebar"
 import { AppSidebar } from "./components/app-sidebar"
-import { Children, PropsWithChildren } from "react"
+import { PropsWithChildren } from "react"
 import { ToggleTheme } from "./components/toogle-theme"
 import LayoutRoot from "./layout-root"
 

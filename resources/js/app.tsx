@@ -1,11 +1,8 @@
 import { createInertiaApp } from "@inertiajs/react";
 import { createRoot } from "react-dom/client";
-import { route as routeFn } from 'ziggy-js';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import '../css/app.css';
-declare global {
-    const route: typeof routeFn;
-}
+
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 

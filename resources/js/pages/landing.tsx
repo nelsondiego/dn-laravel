@@ -1,8 +1,10 @@
 import { Button } from '@/components/ui/button'
 import { Link } from '@inertiajs/react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import LayoutGuess from '@/layouts/layout-guess'
 import { ArrowRight, Code, Github, Layers, Shield, Moon } from 'lucide-react'
+import login from '@/routes/login'
+import register from '@/routes/register'
 
 const Landing = () => {
   return (
@@ -17,13 +19,13 @@ const Landing = () => {
             Kit de inicio profesional con Laravel, Inertia.js/React y Tailwind CSS para desarrollar aplicaciones web modernas de forma rápida y eficiente.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href={route('login')}>
+            <Link href={login().url}>
               <Button size="lg" className="gap-2">
                 Acceder a mi cuenta
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
-            <Link href={route('register')}>
+            <Link href={register().url}>
               <Button variant="outline" size="lg">
                 Crear cuenta gratis
               </Button>
@@ -88,7 +90,7 @@ const Landing = () => {
             Únete a los desarrolladores que ya confían en nuestro starter kit para crear aplicaciones web modernas con Laravel.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href={route('register')}>
+            <Link href={register().url}>
               <Button size="lg" className="gap-2">
                 Comenzar ahora
                 <ArrowRight className="h-4 w-4" />

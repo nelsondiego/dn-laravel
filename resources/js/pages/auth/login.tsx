@@ -1,9 +1,11 @@
+import { login } from "@/actions/App/Http/Controllers/Auth/AuthController";
 import InputError from "@/components/input-error";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import LayoutGuess from "@/layouts/layout-guess";
+import register from "@/routes/register";
 import { Link, useForm } from "@inertiajs/react";
 import { Loader2 } from "lucide-react";
 
@@ -18,7 +20,7 @@ export default function Login() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     post(
-      route('login'),
+      login().url,
       {
         preserveScroll: true,
         onSuccess: () => reset('password'),
@@ -73,7 +75,7 @@ export default function Login() {
           </div>
           <div className="mt-4 text-center text-sm">
             ¿No tienes una cuenta?{" "}
-            <Link href={ route('register') } className="underline underline-offset-4">
+            <Link href={ register().url } className="underline underline-offset-4">
               Regístrate aquí
             </Link>
           </div>

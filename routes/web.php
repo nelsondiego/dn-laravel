@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
@@ -17,4 +18,7 @@ Route::post('logout', [AuthController::class, 'logout'])->name('logout')->middle
 Route::middleware('auth')->group(function () {
     // Dashboard
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Account
+    Route::get('account', [AccountController::class, 'index'])->name('account');
 });
