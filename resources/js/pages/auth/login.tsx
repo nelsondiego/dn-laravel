@@ -11,7 +11,7 @@ import { Loader2 } from "lucide-react";
 
 export default function Login() {
 
-  const { data, setData, post, processing, errors, reset } = useForm({
+  const { data, setData, submit, processing, errors, reset } = useForm({
     email: '',
     password: '',
     remember: false,
@@ -19,13 +19,10 @@ export default function Login() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    post(
-      login().url,
-      {
-        preserveScroll: true,
-        onSuccess: () => reset('password'),
-      }
-    )
+    submit(login(), {
+      preserveScroll: true,
+      onSuccess: () => reset('password'),
+    })
   }
 
   return <LayoutGuess>
@@ -59,23 +56,23 @@ export default function Login() {
                   ¿Olvidaste tu contraseña?
                 </a>
               </div>
-              <Input 
-                id="password" 
+              <Input
+                id="password"
                 type="password"
                 placeholder="••••••••"
-                value={data.password} 
+                value={data.password}
                 onChange={e => setData('password', e.target.value)}
               />
               <InputError message={errors.password} />
             </div>
             <Button type="submit" className="w-full">
-              { processing && <Loader2 className="animate-spin" />}
+              {processing && <Loader2 className="animate-spin" />}
               Iniciar sesión
             </Button>
           </div>
           <div className="mt-4 text-center text-sm">
             ¿No tienes una cuenta?{" "}
-            <Link href={ register().url } className="underline underline-offset-4">
+            <Link href={register()} className="underline underline-offset-4">
               Regístrate aquí
             </Link>
           </div>

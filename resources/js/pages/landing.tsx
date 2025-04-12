@@ -19,13 +19,13 @@ const Landing = () => {
             Kit de inicio profesional con Laravel, Inertia.js/React y Tailwind CSS para desarrollar aplicaciones web modernas de forma rápida y eficiente.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href={login().url}>
+            <Link href={login()}>
               <Button size="lg" className="gap-2">
                 Acceder a mi cuenta
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
-            <Link href={register().url}>
+            <Link href={register()}>
               <Button variant="outline" size="lg">
                 Crear cuenta gratis
               </Button>
@@ -90,7 +90,7 @@ const Landing = () => {
             Únete a los desarrolladores que ya confían en nuestro starter kit para crear aplicaciones web modernas con Laravel.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href={register().url}>
+            <Link href={register()}>
               <Button size="lg" className="gap-2">
                 Comenzar ahora
                 <ArrowRight className="h-4 w-4" />

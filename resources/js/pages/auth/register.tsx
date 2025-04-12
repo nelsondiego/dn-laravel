@@ -11,7 +11,7 @@ import { Loader2 } from "lucide-react";
 
 export default function Register() {
 
-  const { data, setData, post, processing, errors, reset } = useForm({
+  const { data, setData, submit, processing, errors, reset } = useForm({
     name: '',
     email: '',
     password: '',
@@ -20,8 +20,8 @@ export default function Register() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    post(
-      doRegister().url,
+    submit(
+      doRegister(),
       {
         preserveScroll: true,
         onSuccess: () => reset('password'),
@@ -87,7 +87,7 @@ export default function Register() {
           </div>
           <div className="mt-4 text-center text-sm">
             ¿Ya tienes una cuenta?{" "}
-            <Link href={ login().url } className="underline underline-offset-4">
+            <Link href={ login() } className="underline underline-offset-4">
               Ingresa a tu cuenta
             </Link>
           </div>

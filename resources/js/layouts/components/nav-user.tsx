@@ -1,4 +1,4 @@
-"use client"
+
 
 import {
   BadgeCheck,
@@ -41,7 +41,7 @@ interface userProps {
 export function NavUser() {
   const { isMobile } = useSidebar()
   const { user } = usePage().props as Partial<{ user: userProps }>
-  console.log(user)
+  
   if (!user) {
     return null
   }
@@ -109,7 +109,7 @@ export function NavUser() {
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
-              <Link className="w-full cursor-pointer flex items-center" method="post" href={logout().url} as="button">
+              <Link className="w-full cursor-pointer flex items-center" method="post" href={logout()} as="button">
                 <LogOut />
                 Cerrar sesión
               </Link>
