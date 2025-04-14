@@ -15,8 +15,8 @@ const AccountPage = ({ currentUser }: Props) => {
   return (
     <LayoutApp>
       <PageWrapper
-        title="Mi Cuenta"
-        description="Administra tu perfil y personaliza tu experiencia"
+        title="Gestión de Mi Cuenta"
+        description="Aquí puedes administrar tu información personal, actualizar tu contraseña y gestionar la configuración de tu cuenta."
         icon={BadgeCheck}
       >
         <PersonalInfo user={currentUser} />

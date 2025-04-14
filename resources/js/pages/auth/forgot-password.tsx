@@ -25,23 +25,23 @@ export default function ForgotPassword() {
   }
 
   return <LayoutGuess>
-    <Head title="Recupera el acceso a tu cuenta" />
+    <Head title="Restablecer Contraseña" />
     <Card className="w-md">
       <CardHeader>
-        <CardTitle className="text-2xl">Recupera el acceso a tu cuenta</CardTitle>
+        <CardTitle className="text-2xl">¿Olvidaste tu Contraseña?</CardTitle>
         <CardDescription >
-          No te preocupes, nos pasa a todos. Ingresa tu correo electrónico y te enviaremos instrucciones seguras para restablecer tu contraseña de inmediato.
+          No hay problema. Ingresa tu correo electrónico asociado a tu cuenta y te enviaremos un enlace seguro para que puedas crear una nueva.
         </CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col gap-6">
             <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">Correo Electrónico</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="ejemplo@empresa.com"
+                placeholder="tu.correo@ejemplo.com"
                 value={data.email} onChange={e => setData('email', e.target.value)}
               />
               <InputError message={errors.email} />
@@ -49,14 +49,14 @@ export default function ForgotPassword() {
             
             <Button type="submit" className="w-full">
               {processing && <Loader2 className="animate-spin mr-2" />}
-              Recibir instrucciones de recuperación
+              Enviar Enlace de Restablecimiento
             </Button>
           </div>
           
           <div className="mt-4 text-center text-sm">
-            ¿Recordaste tu contraseña?{" "}
+            ¿Lo recordaste?{" "}
             <Link href="/login" className="underline underline-offset-4 text-primary hover:text-primary/80">
-              Volver al inicio de sesión
+              Volver a Inicio de Sesión
             </Link>
           </div>
         </form>

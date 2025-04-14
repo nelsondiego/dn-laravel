@@ -39,7 +39,7 @@ class AuthController extends Controller
             return redirect()->intended(route('dashboard', absolute: false));
         } catch (\Throwable $th) {
             log('Error during login: ' . $th->getMessage());
-            return redirect()->back()->with('error', 'Error al iniciar sesión: ' . $th->getMessage());
+            return redirect()->back()->with('error', 'Hubo un problema al iniciar sesión. Por favor, verifica tus credenciales.');
         }
     }
 
@@ -66,7 +66,7 @@ class AuthController extends Controller
             return redirect()->route('dashboard');
         } catch (\Throwable $th) {
             log('Error during registration: ' . $th->getMessage());
-            return redirect()->back()->with('error', 'Error durante el registro: ' . $th->getMessage());
+            return redirect()->back()->with('error', 'No pudimos completar tu registro en este momento. Por favor, inténtalo de nuevo.');
         }
     }
 
@@ -84,7 +84,7 @@ class AuthController extends Controller
         } catch (\Throwable $th) {
             log('Error during logout: ' . $th->getMessage());
             // Optionally redirect back with error, or just redirect to login anyway
-            return redirect()->route('login')->with('error', 'Error al cerrar sesión.');
+            return redirect()->route('login')->with('error', 'Ocurrió un error al cerrar tu sesión. Por favor, inténtalo nuevamente.');
         }
     }
 }

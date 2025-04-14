@@ -30,12 +30,12 @@ export default function Register() {
   }
 
   return <LayoutGuess>
-    <Head title="Crea tu cuenta gratis"/>
+    <Head title="Registro de Nueva Cuenta"/>
     <Card className="w-md">
       <CardHeader>
-        <CardTitle className="text-2xl">Crea tu cuenta gratis</CardTitle>
+        <CardTitle className="text-2xl">Únete a Nosotros</CardTitle>
         <CardDescription>
-        Ingresa tus datos a continuación para crear tu cuenta
+        Completa el siguiente formulario para empezar a disfrutar de nuestros servicios.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -45,51 +45,51 @@ export default function Register() {
               <Label htmlFor="name">Nombre Completo</Label>
               <Input
                 id="name"
-                placeholder="Juan Perez"
+                placeholder="Ej: Ana López Martínez"
                 value={data.name} onChange={e => setData('name', e.target.value)}
               />
               <InputError message={errors.name} />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">Correo Electrónico</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="ejemplo@empresa.com"
+                placeholder="tu.correo@ejemplo.com"
                 value={data.email} onChange={e => setData('email', e.target.value)}
               />
               <InputError message={errors.email} />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="password">Contraseña</Label>
+              <Label htmlFor="password">Crea una Contraseña</Label>
               <Input
                 id="password"
                 type="password"
-                placeholder="••••••••"
+                placeholder="Mínimo 8 caracteres"
                 value={data.password}
                 onChange={e => setData('password', e.target.value)}
               />
               <InputError message={errors.password} />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="password_confirmation">Repetir Contraseña</Label>
+              <Label htmlFor="password_confirmation">Confirmar Contraseña</Label>
               <Input
                 id="password_confirmation"
                 type="password"
-                placeholder="••••••••"
+                placeholder="Vuelve a escribir la contraseña"
                 value={data.password_confirmation} onChange={e => setData('password_confirmation', e.target.value)}
               />
               <InputError message={errors.password_confirmation} />
             </div>
             <Button type="submit" className="w-full">
               {processing && <Loader2 className="animate-spin" />}
-              Iniciar sesión
+              Crear Mi Cuenta
             </Button>
           </div>
           <div className="mt-4 text-center text-sm">
-            ¿Ya tienes una cuenta?{" "}
+            ¿Ya eres miembro?{" "}
             <Link href={ login() } className="underline underline-offset-4">
-              Ingresa a tu cuenta
+              Inicia sesión aquí
             </Link>
           </div>
         </form>

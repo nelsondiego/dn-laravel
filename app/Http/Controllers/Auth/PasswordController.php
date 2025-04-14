@@ -57,7 +57,7 @@ class PasswordController extends Controller
             throw $e; // Or return back()->withErrors($e->errors());
         } catch (\Throwable $th) {
             log('Error sending password reset link: ' . $th->getMessage());
-            return back()->with('error', 'Ocurrió un error inesperado al enviar el enlace de restablecimiento.');
+            return back()->with('error', 'No pudimos enviar el enlace de restablecimiento en este momento. Por favor, inténtalo de nuevo más tarde.');
         }
     }
 
@@ -119,7 +119,7 @@ class PasswordController extends Controller
             throw $e;
         } catch (\Throwable $th) {
             log('Error resetting password: ' . $th->getMessage());
-            return back()->with('error', 'Ocurrió un error inesperado al restablecer la contraseña.');
+            return back()->with('error', 'Hubo un problema al restablecer tu contraseña. Por favor, verifica los datos o solicita un nuevo enlace.');
         }
     }
 }

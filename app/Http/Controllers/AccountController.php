@@ -49,10 +49,10 @@ class AccountController extends Controller
             $action = new UpdatePersonalInfo();
             $action->execute(user: $user, personalInfo: $request->validated());
 
-            return redirect()->back()->with('success', 'Se actualizó la información personal correctamente');
+            return redirect()->back()->with('success', '¡Excelente! Tu información personal ha sido actualizada con éxito.');
         } catch (\Throwable $th) {
             log('Error updating personal info in accounts: ' . $th->getMessage());
-            return redirect()->back()->with('error', 'No se pudo actualizar la información personal');
+            return redirect()->back()->with('error', 'Lo sentimos, hubo un problema al actualizar tu información personal. Por favor, inténtalo de nuevo.');
         }
     }
 
@@ -70,10 +70,10 @@ class AccountController extends Controller
             $action = new UpdatePasswordAction();
             $action->execute(user: $user, password: $request->password);
 
-            return redirect()->back()->with('success', 'Se actualizó la contraseña correctamente');
+            return redirect()->back()->with('success', '¡Contraseña actualizada! Tu cuenta ahora está más segura.');
         } catch (\Throwable $th) {
             log('Error to update password on accounts: ' . $th->getMessage());
-            return redirect()->back()->with('error', 'No se pudo actualizar la contraseña');
+            return redirect()->back()->with('error', 'Hubo un inconveniente al actualizar tu contraseña. Verifica los datos e inténtalo de nuevo.');
         }
     }
 
@@ -88,10 +88,10 @@ class AccountController extends Controller
             $action = new DeleteAccountAction();
             $action->execute(request: $request);
 
-            return redirect()->route('login')->with('success', 'Se eliminó la cuenta correctamente');
+            return redirect()->route('login')->with('success', 'Tu cuenta ha sido eliminada correctamente. Esperamos verte de nuevo pronto.');
         } catch (\Throwable $th) {
             log('Error deleting account: ' . $th->getMessage());
-            return redirect()->back()->with('error', 'No se pudo eliminar la cuenta');
+            return redirect()->back()->with('error', 'No pudimos eliminar tu cuenta en este momento. Por favor, inténtalo más tarde o contacta a soporte.');
         }
     }
 }

@@ -27,23 +27,23 @@ export default function Login() {
   }
 
   return <LayoutGuess>
-    <Head title="Iniciar sesión" />
+    <Head title="Acceso de Usuario" />
     <Card className="w-md">
       <CardHeader>
-        <CardTitle className="text-2xl">Bienvenido de vuelta</CardTitle>
+        <CardTitle className="text-2xl">¡Hola de Nuevo!</CardTitle>
         <CardDescription>
-          Ingresa tus datos para acceder a tu cuenta
+          Ingresa tu correo electrónico y contraseña para continuar.
         </CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col gap-6">
             <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">Correo Electrónico</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="ejemplo@empresa.com"
+                placeholder="tu.correo@ejemplo.com"
                 value={data.email} onChange={e => setData('email', e.target.value)}
               />
               <InputError message={errors.email} />
@@ -55,7 +55,7 @@ export default function Login() {
                   href={forgotPassword()}
                   className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
                 >
-                  ¿Olvidaste tu contraseña?
+                  ¿Has olvidado tu contraseña?
                 </Link>
               </div>
               <Input
@@ -69,13 +69,13 @@ export default function Login() {
             </div>
             <Button type="submit" className="w-full">
               {processing && <Loader2 className="animate-spin" />}
-              Iniciar sesión
+              Acceder
             </Button>
           </div>
           <div className="mt-4 text-center text-sm">
-            ¿No tienes una cuenta?{" "}
+            ¿Eres nuevo/a aquí?{" "}
             <Link href={register()} className="underline underline-offset-4">
-              Regístrate aquí
+              Crea tu cuenta
             </Link>
           </div>
         </form>

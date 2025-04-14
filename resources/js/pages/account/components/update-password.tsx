@@ -36,8 +36,8 @@ const UpdatePassword = ({ user }: Props) => {
 
   return (
     <PageSection
-      title='Actualizar contraseña'
-      description='Actualiza tu contraseña'
+      title='Cambiar Mi Contraseña'
+      description='Para mayor seguridad, te recomendamos usar una contraseña única que no utilices en otros sitios.'
     >
       <form onSubmit={handleSubmit}>
       <div className="flex flex-col gap-6 max-w-lg">
@@ -53,7 +53,7 @@ const UpdatePassword = ({ user }: Props) => {
               <InputError message={errors.current_password} />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="password">Contraseña Nueva</Label>
+              <Label htmlFor="password">Nueva Contraseña</Label>
               <Input
                 id="password"
                 type="password"
@@ -64,7 +64,7 @@ const UpdatePassword = ({ user }: Props) => {
               <InputError message={errors.password} />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="password_confirmation">Repetir Contraseña Nueva</Label>
+              <Label htmlFor="password_confirmation">Confirmar Nueva Contraseña</Label>
               <Input
                 id="password_confirmation"
                 type="password"
@@ -76,7 +76,7 @@ const UpdatePassword = ({ user }: Props) => {
             <div>
               <Button type="submit">
                 {processing && <Loader2 className="animate-spin" />}
-                Actualizar Contraseña
+                Actualizar Mi Contraseña
               </Button>
             </div>
           </div>

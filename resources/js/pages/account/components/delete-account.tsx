@@ -38,23 +38,22 @@ const DeleteAccount = ({ user }:Props) => {
 
     return (
         <PageSection
-            title='Eliminar cuenta'
-            description='Eliminar cuenta'
+            title='Eliminar Mi Cuenta Permanentemente'
+            description='Una vez que elimines tu cuenta, toda tu información y datos asociados se perderán de forma irreversible.'
         >
             <Dialog>
                 <DialogTrigger asChild>
-                    <Button variant="destructive">Delete account</Button>
+                    <Button variant="destructive">Eliminar Cuenta</Button>
                 </DialogTrigger>
                 <DialogContent>
-                    <DialogTitle>Are you sure you want to delete your account?</DialogTitle>
+                    <DialogTitle>¿Estás seguro/a de que deseas eliminar tu cuenta?</DialogTitle>
                     <DialogDescription>
-                        Once your account is deleted, all of its resources and data will also be permanently deleted. Please enter your password
-                        to confirm you would like to permanently delete your account.
+                        Esta acción es permanente e irreversible. Todos tus datos, configuraciones y recursos asociados a esta cuenta serán eliminados definitivamente. Para confirmar, por favor ingresa tu contraseña actual.
                     </DialogDescription>
                     <form className="space-y-6" onSubmit={deleteUser}>
                         <div className="grid gap-2">
                             <Label htmlFor="password" className="sr-only">
-                                Password
+                                Contraseña
                             </Label>
 
                             <Input
@@ -64,7 +63,7 @@ const DeleteAccount = ({ user }:Props) => {
                                 ref={passwordInput}
                                 value={data.password}
                                 onChange={(e) => setData('password', e.target.value)}
-                                placeholder="Password"
+                                placeholder="Tu contraseña actual"
                                 autoComplete="current-password"
                             />
 
@@ -74,12 +73,12 @@ const DeleteAccount = ({ user }:Props) => {
                         <DialogFooter className="gap-2">
                             <DialogClose asChild>
                                 <Button variant="secondary" onClick={closeModal}>
-                                    Cancel
+                                    Cancelar
                                 </Button>
                             </DialogClose>
 
                             <Button variant="destructive" disabled={processing} asChild>
-                                <button type="submit">Delete account</button>
+                                <button type="submit">Sí, Eliminar Mi Cuenta</button>
                             </Button>
                         </DialogFooter>
                     </form>
