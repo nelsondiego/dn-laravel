@@ -4,12 +4,14 @@ import PersonalInfo from "./components/personal-info"
 import { Separator } from "@/components/ui/separator"
 import PageWrapper from "@/components/PageWrapper"
 import { BadgeCheck } from "lucide-react"
+import UpdatePassword from "./components/update-password"
+import DeleteAccount from "./components/delete-account"
 
 interface Props {
-  user: User
+  currentUser: User
 }
 
-const AccountPage = ({ user }: Props) => {
+const AccountPage = ({ currentUser }: Props) => {
   return (
     <LayoutApp>
       <PageWrapper
@@ -17,8 +19,9 @@ const AccountPage = ({ user }: Props) => {
         description="Administra tu perfil y personaliza tu experiencia"
         icon={BadgeCheck}
       >
-        <PersonalInfo user={user} />
-        <Separator />
+        <PersonalInfo user={currentUser} />
+        <UpdatePassword user={currentUser} />
+        <DeleteAccount user={currentUser} />
       </PageWrapper>
     </LayoutApp>
   )

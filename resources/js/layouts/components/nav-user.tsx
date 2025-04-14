@@ -31,6 +31,7 @@ import {
 } from "@/components/ui/sidebar"
 import { Link, usePage } from "@inertiajs/react"
 import { logout } from "@/actions/App/Http/Controllers/Auth/AuthController"
+import account from "@/routes/account"
 
 interface userProps {
   name: string
@@ -83,29 +84,16 @@ export function NavUser() {
                 </div>
               </div>
             </DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <Sparkles />
-                Upgrade to Pro
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
+            
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem asChild>
-                <Link href="/account" className="flex items-center gap-2">
+                <Link href={account()} className="flex items-center gap-2">
                   <BadgeCheck />
                   Mi Cuenta
                 </Link>
               </DropdownMenuItem>
-              <DropdownMenuItem>
-                <CreditCard />
-                Billing
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Bell />
-                Notifications
-              </DropdownMenuItem>
+              
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>

@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import LayoutGuess from "@/layouts/layout-guess";
 import login from "@/routes/login";
-import { Link, useForm } from "@inertiajs/react";
+import { Head, Link, useForm } from "@inertiajs/react";
 import { Loader2 } from "lucide-react";
 
 export default function Register() {
@@ -30,7 +30,8 @@ export default function Register() {
   }
 
   return <LayoutGuess>
-    <Card>
+    <Head title="Crea tu cuenta gratis"/>
+    <Card className="w-md">
       <CardHeader>
         <CardTitle className="text-2xl">Crea tu cuenta gratis</CardTitle>
         <CardDescription>

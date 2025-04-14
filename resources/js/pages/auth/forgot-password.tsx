@@ -1,16 +1,14 @@
+import { sendResetLink } from "@/actions/App/Http/Controllers/Auth/PasswordController";
 import InputError from "@/components/input-error";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import LayoutGuess from "@/layouts/layout-guess";
-import doLogin from "@/routes/doLogin";
-import forgotPassword from "@/routes/forgotPassword";
-import register from "@/routes/register";
 import { Head, Link, useForm } from "@inertiajs/react";
 import { Loader2 } from "lucide-react";
 
-export default function Login() {
+export default function ForgotPassword() {
 
   const { data, setData, submit, processing, errors, reset } = useForm({
     email: '',
@@ -20,19 +18,19 @@ export default function Login() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    submit(doLogin(), {
+    submit(sendResetLink(), {
       preserveScroll: true,
-      onSuccess: () => reset('password'),
+      onSuccess: () => reset('email'),
     })
   }
 
   return <LayoutGuess>
-    <Head title="Iniciar sesión" />
+    <Head title="Recupera el acceso a tu cuenta" />
     <Card className="w-md">
       <CardHeader>
-        <CardTitle className="text-2xl">Bienvenido de vuelta</CardTitle>
-        <CardDescription>
-          Ingresa tus datos para acceder a tu cuenta
+        <CardTitle className="text-2xl">Recupera el acceso a tu cuenta</CardTitle>
+        <CardDescription >
+          No te preocupes, nos pasa a todos. Ingresa tu correo electrónico y te enviaremos instrucciones seguras para restablecer tu contraseña de inmediato.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -48,34 +46,17 @@ export default function Login() {
               />
               <InputError message={errors.email} />
             </div>
-            <div className="grid gap-2">
-              <div className="flex items-center">
-                <Label htmlFor="password">Contraseña</Label>
-                <Link
-                  href={forgotPassword()}
-                  className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                >
-                  ¿Olvidaste tu contraseña?
-                </Link>
-              </div>
-              <Input
-                id="password"
-                type="password"
-                placeholder="••••••••"
-                value={data.password}
-                onChange={e => setData('password', e.target.value)}
-              />
-              <InputError message={errors.password} />
-            </div>
+            
             <Button type="submit" className="w-full">
-              {processing && <Loader2 className="animate-spin" />}
-              Iniciar sesión
+              {processing && <Loader2 className="animate-spin mr-2" />}
+              Recibir instrucciones de recuperación
             </Button>
           </div>
+          
           <div className="mt-4 text-center text-sm">
-            ¿No tienes una cuenta?{" "}
-            <Link href={register()} className="underline underline-offset-4">
-              Regístrate aquí
+            ¿Recordaste tu contraseña?{" "}
+            <Link href="/login" className="underline underline-offset-4 text-primary hover:text-primary/80">
+              Volver al inicio de sesión
             </Link>
           </div>
         </form>

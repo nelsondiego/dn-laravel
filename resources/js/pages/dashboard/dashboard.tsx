@@ -1,9 +1,18 @@
 import LayoutApp from '@/layouts/layout-app'
-import React from 'react'
+import { User } from '@/types/user'
+import { Head } from '@inertiajs/react'
 
-const Dashboard = () => {
+interface Props {
+  user: User
+}
+
+const Dashboard = ({ user }: Props) => {
+  console.log(user)
   return (
-    <LayoutApp>Dashboard</LayoutApp>
+    <LayoutApp>
+      <Head title="Dashboard" />
+      Dashboard
+    </LayoutApp>
   )
 }
 

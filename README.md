@@ -18,7 +18,26 @@ DN Laravel Starter Kit is a Laravel application template designed to streamline 
 - shadcn UI components library
 - Optimized development environment setup
 - Predefined testing configuration
+- Actions pattern for better code organization and testability
+- Laravel Dump Server for improved debugging ([documentation](https://beyondco.de/docs/laravel-dump-server/installation))
+- Laravel Wayfinder for simplified routing ([documentation](https://github.com/laravel/wayfinder))
 - Includes essential Laravel packages
+
+### 📐 Actions Pattern
+This starter kit implements the Actions pattern, which helps organize business logic into single-purpose, reusable classes. Each Action class is responsible for executing a specific task, making the code more maintainable, testable, and following the Single Responsibility Principle.
+
+Actions are located in the `app/Http/Actions` directory and are organized by domain (e.g., `Account`, `Auth`). Controllers delegate business logic to these Action classes, keeping controllers thin and focused on HTTP concerns.
+
+Example usage in a controller:
+```php
+public function index(Request $request) {
+    return Inertia::render("account/account",[
+        'currentUser' => new UserResource(
+            $this->getAccountAction->execute(Auth::id())
+        )
+    ]);
+}
+```
 
 ### 🛠️ Installation
 

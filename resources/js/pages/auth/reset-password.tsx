@@ -1,3 +1,4 @@
+import { doResetPassword } from "@/actions/App/Http/Controllers/Auth/PasswordController";
 import InputError from "@/components/input-error";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,29 +11,35 @@ import register from "@/routes/register";
 import { Head, Link, useForm } from "@inertiajs/react";
 import { Loader2 } from "lucide-react";
 
-export default function Login() {
+interface ResetPasswordProps {
+  token: string;
+  email: string;
+}
+
+export default function ResetPassword({ token, email }: ResetPasswordProps) {
 
   const { data, setData, submit, processing, errors, reset } = useForm({
-    email: '',
+    token: token,
+    email: email,
     password: '',
-    remember: false,
+    password_confirmation: '',
   })
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    submit(doLogin(), {
+    submit(doResetPassword(), {
       preserveScroll: true,
-      onSuccess: () => reset('password'),
+      preserveState: true,
     })
   }
 
   return <LayoutGuess>
-    <Head title="Iniciar sesión" />
+    <Head title="Resetear contraseña" />
     <Card className="w-md">
       <CardHeader>
-        <CardTitle className="text-2xl">Bienvenido de vuelta</CardTitle>
+        <CardTitle className="text-2xl">Resetear contraseña</CardTitle>
         <CardDescription>
-          Ingresa tus datos para acceder a tu cuenta
+          Crea una nueva contraseña para tu cuenta.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -44,6 +51,7 @@ export default function Login() {
                 id="email"
                 type="email"
                 placeholder="ejemplo@empresa.com"
+                readOnly
                 value={data.email} onChange={e => setData('email', e.target.value)}
               />
               <InputError message={errors.email} />
@@ -51,12 +59,7 @@ export default function Login() {
             <div className="grid gap-2">
               <div className="flex items-center">
                 <Label htmlFor="password">Contraseña</Label>
-                <Link
-                  href={forgotPassword()}
-                  className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                >
-                  ¿Olvidaste tu contraseña?
-                </Link>
+                
               </div>
               <Input
                 id="password"
@@ -67,9 +70,19 @@ export default function Login() {
               />
               <InputError message={errors.password} />
             </div>
+            <div className="grid gap-2">
+              <Label htmlFor="password_confirmation">Repetir Contraseña</Label>
+              <Input
+                id="password_confirmation"
+                type="password"
+                placeholder="••••••••"
+                value={data.password_confirmation} onChange={e => setData('password_confirmation', e.target.value)}
+              />
+              <InputError message={errors.password_confirmation} />
+            </div>
             <Button type="submit" className="w-full">
               {processing && <Loader2 className="animate-spin" />}
-              Iniciar sesión
+              Cambiar contraseña
             </Button>
           </div>
           <div className="mt-4 text-center text-sm">

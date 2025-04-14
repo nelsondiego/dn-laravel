@@ -27,24 +27,5 @@ class RegisterRequest extends FormRequest
         ];
     }
 
-    /**
-     * Mensajes de validación personalizados
-     *
-     * @return array<string, string>
-     */
-    public function messages(): array
-    {
-        return [
-            'name.required' => 'El nombre es obligatorio',
-            'name.string' => 'El nombre debe ser texto válido',
-            'name.max' => 'El nombre no puede exceder los 255 caracteres',
-            'email.required' => 'El correo electrónico es obligatorio',
-            'email.email' => 'Debe ingresar un correo electrónico válido',
-            'email.max' => 'El correo no puede exceder los 255 caracteres',
-            'email.unique' => 'Este correo ya está registrado',
-            'password.required' => 'La contraseña es obligatoria',
-            'password.min' => 'La contraseña debe tener al menos 8 caracteres',
-            'password.confirmed' => 'La confirmación de contraseña no coincide',
-        ];
-    }
+
 }
