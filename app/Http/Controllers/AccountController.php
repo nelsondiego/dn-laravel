@@ -27,11 +27,11 @@ class AccountController extends Controller
      * @param User $user The authenticated user
      * @return \Inertia\Response
      */
-    public function index(Request $request, User $user)
+    public function index(Request $request)
     {
         return Inertia::render("account/account", [
             'currentUser' => new UserResource(
-                $user
+                Auth::user()
             )
         ]);
     }
