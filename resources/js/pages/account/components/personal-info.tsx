@@ -7,7 +7,6 @@ interface Props {
 
 const PersonalInfo = ({ user }: Props) => {
     return (
-
         <PageSection
             title="Información Personal"
             description="Actualiza y gestiona tus datos personales para una experiencia más personalizada"

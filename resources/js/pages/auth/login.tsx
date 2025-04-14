@@ -1,10 +1,10 @@
-import { login } from "@/actions/App/Http/Controllers/Auth/AuthController";
 import InputError from "@/components/input-error";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import LayoutGuess from "@/layouts/layout-guess";
+import doLogin from "@/routes/doLogin";
 import register from "@/routes/register";
 import { Link, useForm } from "@inertiajs/react";
 import { Loader2 } from "lucide-react";
@@ -19,7 +19,7 @@ export default function Login() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    submit(login(), {
+    submit(doLogin(), {
       preserveScroll: true,
       onSuccess: () => reset('password'),
     })
