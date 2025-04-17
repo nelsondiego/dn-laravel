@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Password;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -56,7 +57,7 @@ class PasswordController extends Controller
             // Validation errors are handled by Laravel, but re-throw if needed or handle differently
             throw $e; // Or return back()->withErrors($e->errors());
         } catch (\Throwable $th) {
-            log('Error sending password reset link: ' . $th->getMessage());
+            Log::error('Error sending password reset link: ' . $th->getMessage());
             return back()->with('error', 'No pudimos enviar el enlace de restablecimiento en este momento. Por favor, inténtalo de nuevo más tarde.');
         }
     }
@@ -118,7 +119,7 @@ class PasswordController extends Controller
             // Let Laravel handle validation exception redirection
             throw $e;
         } catch (\Throwable $th) {
-            log('Error resetting password: ' . $th->getMessage());
+            Log::error('Error resetting password: ' . $th->getMessage());
             return back()->with('error', 'Hubo un problema al restablecer tu contraseña. Por favor, verifica los datos o solicita un nuevo enlace.');
         }
     }

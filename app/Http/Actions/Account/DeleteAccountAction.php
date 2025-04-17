@@ -3,6 +3,7 @@
 namespace App\Http\Actions\Account;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Action for deleting a user's account
@@ -32,7 +33,7 @@ class DeleteAccountAction
             $request->session()->invalidate();
             $request->session()->regenerateToken();
         } catch (\Throwable $th) {
-            log('Error during account deletion action: ' . $th->getMessage());
+            Log::error('Error during account deletion action: ' . $th->getMessage());
             // Re-throw to be caught by the controller
             throw $th;
         }

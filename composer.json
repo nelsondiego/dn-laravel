@@ -1,11 +1,12 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "nelsondiego/dn-laravel",
+    "name": "inventia/inventia",
     "type": "project",
-    "description": "Diego Nelson - Laravel Starter Kit",
+    "description": "Inventia.app - Sistema de gestión de inventario y ventas",
     "keywords": [
-        "laravel",
-        "framework"
+        "inventia",
+        "inventario",
+        "ventas"
     ],
     "license": "MIT",
     "require": {

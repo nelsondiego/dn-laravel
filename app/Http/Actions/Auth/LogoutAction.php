@@ -4,6 +4,7 @@ namespace App\Http\Actions\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 
 /**
@@ -26,7 +27,7 @@ class LogoutAction
             $request->session()->regenerateToken();
             Inertia::clearHistory();
         } catch (\Throwable $th) {
-            log('Error during logout action: ' . $th->getMessage());
+            Log::error('Error during logout action: ' . $th->getMessage());
             // Re-throw the exception to be caught by the controller
             throw $th;
         }

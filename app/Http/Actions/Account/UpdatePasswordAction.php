@@ -4,6 +4,7 @@ namespace App\Http\Actions\Account;
 use App\Http\Requests\Account\UpdatePersonalInfoRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Action for updating a user's password
@@ -25,7 +26,7 @@ class UpdatePasswordAction {
             ]);
             return $user;
         } catch (\Throwable $th) {
-            log('Error updating password in UpdatePasswordAction: ' . $th->getMessage());
+            Log::error('Error updating password in UpdatePasswordAction: ' . $th->getMessage());
             throw $th;
         }
     }

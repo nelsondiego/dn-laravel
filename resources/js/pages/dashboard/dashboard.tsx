@@ -7,7 +7,6 @@ interface Props {
 }
 
 const Dashboard = ({ user }: Props) => {
-  console.log(user)
   return (
     <LayoutApp>
       <Head title="Dashboard" />

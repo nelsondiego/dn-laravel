@@ -10,6 +10,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 
 /**
@@ -38,7 +39,7 @@ class AuthController extends Controller
             $action->execute();
             return redirect()->intended(route('dashboard', absolute: false));
         } catch (\Throwable $th) {
-            log('Error during login: ' . $th->getMessage());
+            Log::error('Error during login: ' . $th->getMessage());
             return redirect()->back()->with('error', 'Hubo un problema al iniciar sesión. Por favor, verifica tus credenciales.');
         }
     }
@@ -65,7 +66,7 @@ class AuthController extends Controller
             Auth::login($user);
             return redirect()->route('dashboard');
         } catch (\Throwable $th) {
-            log('Error during registration: ' . $th->getMessage());
+            Log::error('Error during registration: ' . $th->getMessage());
             return redirect()->back()->with('error', 'No pudimos completar tu registro en este momento. Por favor, inténtalo de nuevo.');
         }
     }
@@ -82,7 +83,7 @@ class AuthController extends Controller
             $action->execute($request);
             return redirect()->route('login');
         } catch (\Throwable $th) {
-            log('Error during logout: ' . $th->getMessage());
+            Log::error('Error during logout: ' . $th->getMessage());
             // Optionally redirect back with error, or just redirect to login anyway
             return redirect()->route('login')->with('error', 'Ocurrió un error al cerrar tu sesión. Por favor, inténtalo nuevamente.');
         }

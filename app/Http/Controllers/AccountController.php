@@ -12,6 +12,7 @@ use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 
 /**
@@ -51,7 +52,7 @@ class AccountController extends Controller
 
             return redirect()->back()->with('success', '¡Excelente! Tu información personal ha sido actualizada con éxito.');
         } catch (\Throwable $th) {
-            log('Error updating personal info in accounts: ' . $th->getMessage());
+            Log::error('Error updating personal info in accounts: ' . $th->getMessage());
             return redirect()->back()->with('error', 'Lo sentimos, hubo un problema al actualizar tu información personal. Por favor, inténtalo de nuevo.');
         }
     }
@@ -72,7 +73,7 @@ class AccountController extends Controller
 
             return redirect()->back()->with('success', '¡Contraseña actualizada! Tu cuenta ahora está más segura.');
         } catch (\Throwable $th) {
-            log('Error to update password on accounts: ' . $th->getMessage());
+            Log::error('Error to update password on accounts: ' . $th->getMessage());
             return redirect()->back()->with('error', 'Hubo un inconveniente al actualizar tu contraseña. Verifica los datos e inténtalo de nuevo.');
         }
     }
@@ -90,7 +91,7 @@ class AccountController extends Controller
 
             return redirect()->route('login')->with('success', 'Tu cuenta ha sido eliminada correctamente. Esperamos verte de nuevo pronto.');
         } catch (\Throwable $th) {
-            log('Error deleting account: ' . $th->getMessage());
+            Log::error('Error deleting account: ' . $th->getMessage());
             return redirect()->back()->with('error', 'No pudimos eliminar tu cuenta en este momento. Por favor, inténtalo más tarde o contacta a soporte.');
         }
     }

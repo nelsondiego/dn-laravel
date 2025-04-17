@@ -5,6 +5,7 @@ namespace App\Http\Actions\Auth;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Action for registering a new user
@@ -30,7 +31,7 @@ class RegisterAction
             return $user;
         } catch (\Throwable $th) {
             // Log the detailed error
-            log('Error creating user during registration: ' . $th->getMessage());
+            Log::error('Error creating user during registration: ' . $th->getMessage());
             // Re-throw the exception to be caught by the controller
             throw $th;
         }

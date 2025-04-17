@@ -3,6 +3,7 @@ namespace App\Http\Actions\Account;
 
 use App\Http\Requests\Account\UpdatePersonalInfoRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Action for updating a user's personal information
@@ -22,7 +23,7 @@ class UpdatePersonalInfo {
             $user->update($personalInfo);
             return $user;
         } catch (\Throwable $th) {
-            log('Error updating personal info in UpdatePersonalInfo action: ' . $th->getMessage());
+            Log::error('Error updating personal info in UpdatePersonalInfo action: ' . $th->getMessage());
             throw $th;
         }
     }
