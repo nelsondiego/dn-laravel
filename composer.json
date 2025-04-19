@@ -1,18 +1,18 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "inventia/inventia",
+    "name": "nelsondiego/dn-laravel",
     "type": "project",
-    "description": "Inventia.app - Sistema de gestión de inventario y ventas",
+    "description": "Laravel Starter Kit",
     "keywords": [
-        "inventia",
-        "inventario",
-        "ventas"
+        "laravel",
+        "starter",
+        "kit"
     ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
         "inertiajs/inertia-laravel": "^2.0",
-        "laravel/framework": "^12.0",
+        "laravel/framework": "^12.9",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1",
         "laravel/wayfinder": "^0.1.4"
@@ -54,7 +54,9 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
-            "@php artisan migrate --graceful --ansi"
+            "@php artisan migrate --graceful --ansi",
+            "@php artisan wayfinder:generate"
+
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
